@@ -1,7 +1,8 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { fruits } from "@/data/fruits";
+import { X } from "lucide-react";
 
 interface FruitSelectorProps {
   open: boolean;
@@ -16,57 +17,41 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
     fruit.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const categories = ["Common", "Uncommon", "Rare", "Legendary", "Mythical"];
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] bg-blox-background border-none">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-            Select a Fruit
-          </DialogTitle>
-        </DialogHeader>
-        <div className="space-y-6">
-          <Input
-            placeholder="Search fruits..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="bg-blox-panel border-blox-accent focus:ring-blox-accent"
-          />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[600px] overflow-y-auto pr-2">
-            {categories.map(category => {
-              const categoryFruits = filteredFruits.filter(fruit => fruit.category === category);
-              if (categoryFruits.length === 0) return null;
-              
-              return (
-                <div key={category} className="col-span-full">
-                  <h3 className="text-lg font-semibold mb-2 text-white/80">{category}</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {categoryFruits.map((fruit) => (
-                      <button
-                        key={fruit.name}
-                        onClick={() => {
-                          onSelect(fruit);
-                          onOpenChange(false);
-                        }}
-                        className="p-4 rounded-lg bg-blox-panel hover:bg-white/5 transition-all space-y-2"
-                      >
-                        <img src={fruit.image} alt={fruit.name} className="w-full aspect-square object-cover rounded-md" />
-                        <h3 className="font-semibold truncate">{fruit.name}</h3>
-                        <div className="space-y-1 text-sm">
-                          <div className="bg-blue-500/10 p-1 rounded">
-                            Physical: ${fruit.physical.toLocaleString()}
-                          </div>
-                          <div className="bg-purple-500/10 p-1 rounded">
-                            Permanent: ${fruit.permanent.toLocaleString()}
-                          </div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
+      <DialogContent className="sm:max-w-[800px] bg-[#1A1A1A] border-none p-0">
+        <div className="p-6 space-y-6">
+          <div className="flex items-center justify-between">
+            <h2 className="text-2xl font-bold text-white">Select Item Your Has</h2>
+            <button onClick={() => onOpenChange(false)} className="text-white/60 hover:text-white">
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          
+          <div className="relative">
+            <Input
+              placeholder="Search trading items"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="bg-[#2A2A2A] border-none text-white placeholder:text-white/40"
+            />
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[600px] overflow-y-auto pr-2">
+            {filteredFruits.map((fruit) => (
+              <button
+                key={fruit.name}
+                onClick={() => {
+                  onSelect(fruit);
+                  onOpenChange(false);
+                }}
+                className="p-4 rounded-lg bg-[#2A2A2A] hover:bg-[#3A3A3A] transition-all space-y-2 text-center"
+              >
+                <img src={fruit.image} alt={fruit.name} className="w-full aspect-square object-cover rounded-md" />
+                <div className="text-2xl font-bold text-white">${fruit.physical.toLocaleString()}</div>
+                <div className="text-lg text-white/80">{fruit.name}</div>
+              </button>
+            ))}
           </div>
         </div>
       </DialogContent>

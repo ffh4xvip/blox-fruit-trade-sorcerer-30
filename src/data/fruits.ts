@@ -287,7 +287,9 @@ export const fruits = [
     category: "Mythical"
   }
 ].map(fruit => ({
-  ...fruit,
+  name: fruit.name,
+  image: fruit.image,
   physical: fruit.physicalValue || fruit.physical,
-  permanent: fruit.permanentValue || fruit.permanent
+  permanent: fruit.permanentValue || fruit.permanent,
+  category: fruit.category
 }));
