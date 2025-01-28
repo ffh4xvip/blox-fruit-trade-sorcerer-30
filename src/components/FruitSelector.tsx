@@ -37,13 +37,17 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
                   onSelect(fruit);
                   onOpenChange(false);
                 }}
-                className="p-4 rounded-lg glass hover:bg-white/10 transition-all space-y-2"
+                className="p-4 rounded-lg bg-blox-background hover:bg-white/10 transition-all space-y-2"
               >
                 <img src={fruit.image} alt={fruit.name} className="w-full h-24 object-cover rounded-md" />
                 <h3 className="font-semibold">{fruit.name}</h3>
-                <div className="text-sm text-white/60">
-                  <p>Physical: ${fruit.physical.toLocaleString()}</p>
-                  <p>Permanent: ${fruit.permanent.toLocaleString()}</p>
+                <div className="space-y-1 text-sm">
+                  <div className="bg-blue-500/20 p-1 rounded">
+                    Physical: ${fruit.physical.toLocaleString()}
+                  </div>
+                  <div className="bg-purple-500/20 p-1 rounded">
+                    Permanent: ${fruit.permanent.toLocaleString()}
+                  </div>
                 </div>
               </button>
             ))}

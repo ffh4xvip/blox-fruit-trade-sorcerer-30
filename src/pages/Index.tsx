@@ -64,6 +64,29 @@ const Index = () => {
     });
   };
 
+  const handleRemove = (side: "you" | "them", index: number) => {
+    const trade = side === "you" ? yourTrade : theirTrade;
+    const setTrade = side === "you" ? setYourTrade : setTheirTrade;
+
+    const newFruits = [...trade.fruits];
+    newFruits[index] = {};
+
+    const newTotal = newFruits.reduce(
+      (acc, fruit) => acc + (fruit.price || 0),
+      0
+    );
+
+    setTrade({
+      fruits: newFruits,
+      total: newTotal,
+    });
+
+    toast({
+      title: "Fruit Removed",
+      description: "Removed fruit from the trade",
+    });
+  };
+
   const handleToggle = (side: "you" | "them", index: number) => (checked: boolean) => {
     const trade = side === "you" ? yourTrade : theirTrade;
     const setTrade = side === "you" ? setYourTrade : setTheirTrade;
@@ -112,10 +135,11 @@ const Index = () => {
                   setSelectedSlot({ side: "you", index });
                   setSelectorOpen(true);
                 }}
+                onRemove={() => handleRemove("you", index)}
               />
             ))}
           </div>
-          <div className="flex justify-between items-center p-4 rounded-lg glass">
+          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
             <span className="text-lg">PRICE:</span>
             <span className="text-xl text-green-400">
               ${yourTrade.total.toLocaleString()}
@@ -136,10 +160,11 @@ const Index = () => {
                   setSelectedSlot({ side: "them", index });
                   setSelectorOpen(true);
                 }}
+                onRemove={() => handleRemove("them", index)}
               />
             ))}
           </div>
-          <div className="flex justify-between items-center p-4 rounded-lg glass">
+          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
             <span className="text-lg">PRICE:</span>
             <span className="text-xl text-green-400">
               ${theirTrade.total.toLocaleString()}

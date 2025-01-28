@@ -53,11 +53,15 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         blox: {
-          background: "#1a1b1e",
-          panel: "#2a2b30",
+          background: "#1a1f2c",
+          panel: "#2a2f3c",
           accent: "#8b5cf6",
           success: "#4ade80",
           warning: "#f87171",
+          card: {
+            header: "#4ade80",
+            body: "#2a2f3c",
+          }
         },
       },
       borderRadius: {
