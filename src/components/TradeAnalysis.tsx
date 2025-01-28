@@ -18,20 +18,20 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
       return {
         text: "Fair Trade",
         icon: MinusCircle,
-        className: "bg-blue-500/20 text-blue-400",
+        className: "bg-blue-500 text-white",
       };
     }
     if (isUnderpaying) {
       return {
         text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Underpaying`,
         icon: TrendingDown,
-        className: "bg-green-500/20 text-green-400",
+        className: "bg-green-500 text-white",
       };
     }
     return {
       text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Overpaying`,
       icon: TrendingUp,
-      className: "bg-red-500/20 text-red-400",
+      className: "bg-red-500 text-white",
     };
   };
 

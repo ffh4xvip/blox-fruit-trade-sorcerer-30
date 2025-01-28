@@ -30,7 +30,7 @@ export const FruitCard = ({
       <button
         onClick={onClick}
         className={cn(
-          "flex items-center justify-center w-full h-full min-h-[200px] rounded-lg bg-blox-panel border border-white/10 transition-all hover:bg-white/10",
+          "flex items-center justify-center w-full aspect-square rounded-lg bg-blox-panel border border-white/10 transition-all hover:bg-white/10",
           className
         )}
       >
@@ -40,10 +40,13 @@ export const FruitCard = ({
   }
 
   return (
-    <div className={cn("rounded-lg overflow-hidden bg-blox-panel group relative", className)}>
+    <div className={cn(
+      "rounded-lg overflow-hidden bg-blox-panel group relative aspect-square",
+      className
+    )}>
       <div className="bg-blox-card-header p-2 flex items-center justify-between">
-        <h3 className="text-lg font-semibold">{name}</h3>
-        <span className="text-xl">${price?.toLocaleString()}</span>
+        <h3 className="text-lg font-semibold truncate mr-2">{name}</h3>
+        <span className="text-xl whitespace-nowrap">${price?.toLocaleString()}</span>
       </div>
       
       {/* Close button that appears on hover */}
@@ -54,14 +57,16 @@ export const FruitCard = ({
         <X className="w-8 h-8 text-white/80 hover:text-white" />
       </button>
       
-      <div className="p-4 space-y-4">
+      <div className="p-4 space-y-4 h-[calc(100%-3rem)] flex flex-col">
         {image && (
-          <img src={image} alt={name} className="w-full h-32 object-cover rounded-md" />
+          <div className="flex-1 min-h-0">
+            <img src={image} alt={name} className="w-full h-full object-cover rounded-md" />
+          </div>
         )}
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-white/60">Physical</span>
+        <div className="flex items-center justify-between bg-white/10 p-2 rounded-lg">
+          <span className="text-sm text-white/90">Physical</span>
           <Switch checked={!isPhysical} onCheckedChange={onToggle} />
-          <span className="text-sm text-white/60">Permanent</span>
+          <span className="text-sm text-white/90">Permanent</span>
         </div>
       </div>
     </div>
