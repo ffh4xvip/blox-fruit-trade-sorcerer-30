@@ -20,16 +20,18 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] bg-blox-panel border-blox-accent">
+      <DialogContent className="sm:max-w-[800px] bg-blox-background border-none">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Select a Fruit</DialogTitle>
+          <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+            Select a Fruit
+          </DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
           <Input
             placeholder="Search fruits..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="bg-blox-background border-blox-accent"
+            className="bg-blox-panel border-blox-accent focus:ring-blox-accent"
           />
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[600px] overflow-y-auto pr-2">
             {categories.map(category => {
@@ -47,15 +49,15 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
                           onSelect(fruit);
                           onOpenChange(false);
                         }}
-                        className="p-4 rounded-lg bg-blox-background hover:bg-white/10 transition-all space-y-2"
+                        className="p-4 rounded-lg bg-blox-panel hover:bg-white/5 transition-all space-y-2"
                       >
                         <img src={fruit.image} alt={fruit.name} className="w-full aspect-square object-cover rounded-md" />
                         <h3 className="font-semibold truncate">{fruit.name}</h3>
                         <div className="space-y-1 text-sm">
-                          <div className="bg-blue-500/20 p-1 rounded">
+                          <div className="bg-blue-500/10 p-1 rounded">
                             Physical: ${fruit.physical.toLocaleString()}
                           </div>
-                          <div className="bg-purple-500/20 p-1 rounded">
+                          <div className="bg-purple-500/10 p-1 rounded">
                             Permanent: ${fruit.permanent.toLocaleString()}
                           </div>
                         </div>

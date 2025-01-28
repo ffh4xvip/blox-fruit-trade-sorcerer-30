@@ -57,11 +57,6 @@ const Index = () => {
       fruits: newFruits,
       total: newTotal,
     });
-
-    toast({
-      title: "Fruit Added",
-      description: `Added ${fruit.name} to the trade`,
-    });
   };
 
   const handleRemove = (side: "you" | "them", index: number) => {
@@ -79,11 +74,6 @@ const Index = () => {
     setTrade({
       fruits: newFruits,
       total: newTotal,
-    });
-
-    toast({
-      title: "Fruit Removed",
-      description: "Removed fruit from the trade",
     });
   };
 

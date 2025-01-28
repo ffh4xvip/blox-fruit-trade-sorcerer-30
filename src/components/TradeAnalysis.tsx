@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { TrendingDown, TrendingUp, MinusCircle } from "lucide-react";
+import { ThumbsUp, ThumbsDown, MinusCircle } from "lucide-react";
 
 interface TradeAnalysisProps {
   yourTotal: number;
@@ -11,7 +11,7 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
 
   const difference = ((theirTotal - yourTotal) / yourTotal) * 100;
   const isUnderpaying = difference > 0;
-  const isFair = Math.abs(difference) < 5; // Consider trades within 5% difference as fair
+  const isFair = Math.abs(difference) < 5;
 
   const getAnalysis = () => {
     if (isFair) {
@@ -24,13 +24,13 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
     if (isUnderpaying) {
       return {
         text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Underpaying`,
-        icon: TrendingDown,
+        icon: ThumbsUp,
         className: "bg-green-500 text-white",
       };
     }
     return {
       text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Overpaying`,
-      icon: TrendingUp,
+      icon: ThumbsDown,
       className: "bg-red-500 text-white",
     };
   };
