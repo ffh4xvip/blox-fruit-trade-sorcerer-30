@@ -19,21 +19,21 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-[800px] bg-[#1A1A1A] border-none p-0">
+      <DialogContent className="sm:max-w-[800px] bg-blox-background border-none p-0">
         <div className="p-6 space-y-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-white">Select Item Your Has</h2>
+            <h2 className="text-xl font-semibold text-white">Select Item</h2>
             <button onClick={() => onOpenChange(false)} className="text-white/60 hover:text-white">
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
           
           <div className="relative">
             <Input
-              placeholder="Search trading items"
+              placeholder="Search items..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="bg-[#2A2A2A] border-none text-white placeholder:text-white/40"
+              className="bg-blox-panel border-none text-white placeholder:text-white/40"
             />
           </div>
 
@@ -45,11 +45,11 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
                   onSelect(fruit);
                   onOpenChange(false);
                 }}
-                className="p-4 rounded-lg bg-[#2A2A2A] hover:bg-[#3A3A3A] transition-all space-y-2 text-center"
+                className="p-4 rounded-lg bg-blox-panel hover:bg-opacity-90 transition-all space-y-2"
               >
                 <img src={fruit.image} alt={fruit.name} className="w-full aspect-square object-cover rounded-md" />
-                <div className="text-2xl font-bold text-white">${fruit.physical.toLocaleString()}</div>
-                <div className="text-lg text-white/80">{fruit.name}</div>
+                <div className="text-lg font-bold text-white">${fruit.physical.toLocaleString()}</div>
+                <div className="text-sm text-white/80">{fruit.name}</div>
               </button>
             ))}
           </div>

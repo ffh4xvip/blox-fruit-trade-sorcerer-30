@@ -48,8 +48,14 @@ const Index = () => {
       isPhysical: true,
     };
 
+    // If this is the first card, activate the second card
+    if (index === 0) {
+      setSelectedSlot({ side, index: 1 });
+      setSelectorOpen(true);
+    }
+
     const newTotal = newFruits.reduce(
-      (acc, fruit) => acc + (fruit.price || 0),
+      (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
       0
     );
 
@@ -120,6 +126,7 @@ const Index = () => {
               <FruitCard
                 key={index}
                 {...fruit}
+                isFirstCard={index === 0}
                 onToggle={handleToggle("you", index)}
                 onClick={() => {
                   setSelectedSlot({ side: "you", index });
@@ -145,6 +152,7 @@ const Index = () => {
               <FruitCard
                 key={index}
                 {...fruit}
+                isFirstCard={index === 0}
                 onToggle={handleToggle("them", index)}
                 onClick={() => {
                   setSelectedSlot({ side: "them", index });

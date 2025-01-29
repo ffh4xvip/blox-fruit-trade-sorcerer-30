@@ -1,14 +1,22 @@
-export const fruits = [
+export interface Fruit {
+  name: string;
+  image: string;
+  physical: number;
+  permanent: number;
+  category: string;
+}
+
+const createFruitsList = (): Fruit[] => [
   {
     name: "Rocket",
-    image: "/lovable-uploads/8a895c42-ebb6-4e71-ac1b-d1f6e9961ba0.png",
+    image: `/fruits/${encodeURIComponent("Rocket")}.png`,
     physical: 50000,
     permanent: 2000000,
     category: "Common"
   },
   {
     name: "Spin",
-    image: "/lovable-uploads/8a895c42-ebb6-4e71-ac1b-d1f6e9961ba0.png",
+    image: `/fruits/${encodeURIComponent("Spin")}.png`,
     physical: 7500,
     permanent: 1500000,
     category: "Common"
@@ -286,10 +294,12 @@ export const fruits = [
     permanent: 900000000,
     category: "Mythical"
   }
-].map(fruit => ({
+];
+
+export const fruits = createFruitsList().map(fruit => ({
   name: fruit.name,
   image: fruit.image,
-  physical: fruit.physicalValue || fruit.physical,
-  permanent: fruit.permanentValue || fruit.permanent,
+  physical: fruit.physical,
+  permanent: fruit.permanent,
   category: fruit.category
 }));
