@@ -136,11 +136,22 @@ const Index = () => {
               />
             ))}
           </div>
-          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
-            <span className="text-lg">PRICE:</span>
-            <span className="text-xl text-green-400">
-              ${yourTrade.total.toLocaleString()}
-            </span>
+          <div className="flex flex-col p-4 rounded-lg bg-blox-panel space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-lg">PRICE:</span>
+              <span className="text-xl text-green-400">
+                ${yourTrade.total.toLocaleString()}
+              </span>
+            </div>
+            {yourTrade.fruits.some(f => !f.isPhysical) && (
+              <div className="flex justify-between items-center text-sm text-white/80">
+                <span>Permanent Value:</span>
+                <span>
+                  ${yourTrade.fruits.reduce((acc, fruit) => 
+                    acc + (!fruit.isPhysical ? (fruit.permanent || 0) : 0), 0).toLocaleString()}
+                </span>
+              </div>
+            )}
           </div>
         </div>
 
@@ -162,11 +173,22 @@ const Index = () => {
               />
             ))}
           </div>
-          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
-            <span className="text-lg">PRICE:</span>
-            <span className="text-xl text-green-400">
-              ${theirTrade.total.toLocaleString()}
-            </span>
+          <div className="flex flex-col p-4 rounded-lg bg-blox-panel space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-lg">PRICE:</span>
+              <span className="text-xl text-green-400">
+                ${theirTrade.total.toLocaleString()}
+              </span>
+            </div>
+            {theirTrade.fruits.some(f => !f.isPhysical) && (
+              <div className="flex justify-between items-center text-sm text-white/80">
+                <span>Permanent Value:</span>
+                <span>
+                  ${theirTrade.fruits.reduce((acc, fruit) => 
+                    acc + (!fruit.isPhysical ? (fruit.permanent || 0) : 0), 0).toLocaleString()}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </div>

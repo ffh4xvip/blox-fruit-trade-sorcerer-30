@@ -18,21 +18,24 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
     if (isFair) {
       return {
         text: "Fair Trade",
+        subtext: `${Math.abs(difference).toFixed(2)}%`,
         icon: MinusCircle,
         className: "bg-blue-500 text-white",
       };
     }
     if (isUnderpaying) {
       return {
-        text: `${Math.abs(difference).toFixed(2)}% Underpaying`,
+        text: "Good Deal",
+        subtext: `${Math.abs(difference).toFixed(2)}% Underpaying`,
         icon: ThumbsDown,
-        className: "bg-red-500 text-white",
+        className: "bg-green-500 text-white",
       };
     }
     return {
-      text: `${difference.toFixed(2)}% Overpaying`,
+      text: "Bad Deal",
+      subtext: `${difference.toFixed(2)}% Overpaying`,
       icon: ThumbsUp,
-      className: "bg-green-500 text-white",
+      className: "bg-red-500 text-white",
     };
   };
 
@@ -49,7 +52,10 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
         )}
       >
         <Icon className="w-5 h-5" />
-        {analysis.text}
+        <div className="flex flex-col">
+          <span>{analysis.text}</span>
+          <span className="text-sm opacity-90">{analysis.subtext}</span>
+        </div>
       </div>
     </div>
   );
