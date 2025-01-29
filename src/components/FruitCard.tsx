@@ -51,7 +51,7 @@ export const FruitCard = ({
       className
     )}>
       {/* Top bar with name and value */}
-      <div className="flex items-center justify-between p-3 bg-[#1E1E1E]">
+      <div className="flex items-center justify-between p-3 bg-blox-background">
         <span className="text-sm font-medium text-white">{name}</span>
         <span className="text-sm font-bold text-white">
           ${displayValue?.toLocaleString()}
@@ -77,7 +77,7 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-3 bg-[#1E1E1E] mt-auto">
+      <div className="p-3 bg-blox-background mt-auto">
         <div className="flex items-center justify-between">
           <span className="text-xs text-white/80">{isPhysical ? 'Physical' : 'Permanent'}</span>
           <Switch 
