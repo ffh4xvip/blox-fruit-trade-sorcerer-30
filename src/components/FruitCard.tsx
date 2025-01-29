@@ -30,7 +30,7 @@ export const FruitCard = ({
       <button
         onClick={onClick}
         className={cn(
-          "flex items-center justify-center w-full h-[240px] rounded-lg bg-blox-panel transition-all hover:bg-opacity-90",
+          "flex items-center justify-center w-full h-[320px] rounded-lg bg-blox-panel transition-all hover:bg-opacity-90",
           className
         )}
       >
@@ -43,7 +43,7 @@ export const FruitCard = ({
 
   return (
     <div className={cn(
-      "rounded-lg overflow-hidden bg-blox-panel group relative h-[240px] flex flex-col",
+      "rounded-lg overflow-hidden bg-blox-panel group relative h-[320px] flex flex-col",
       className
     )}>
       {/* Top bar with name and value */}
@@ -57,7 +57,7 @@ export const FruitCard = ({
       {/* Image area with centered close button */}
       <div className="relative flex-grow p-4 flex items-center justify-center">
         {image && (
-          <div className="relative w-[60%] h-[85%] flex items-center justify-center">
+          <div className="relative w-[70%] h-[85%] flex items-center justify-center">
             <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
