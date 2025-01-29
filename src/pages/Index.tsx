@@ -109,75 +109,75 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 md:p-8 space-y-8">
-      <div className="text-center space-y-2">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
-          Blox Fruit Calculator
-        </h1>
-        <p className="text-white/60">Calculate and compare fruit trades with ease</p>
-      </div>
+    <div className="min-h-screen p-4 md:p-8">
+      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="text-center space-y-2">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
+            Blox Fruit Calculator
+          </h1>
+          <p className="text-white/60">Calculate and compare fruit trades with ease</p>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {/* Your Trade */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">You</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {yourTrade.fruits.map((fruit, index) => (
-              <FruitCard
-                key={index}
-                {...fruit}
-                isFirstCard={index === 0}
-                onToggle={handleToggle("you", index)}
-                onClick={() => {
-                  setSelectedSlot({ side: "you", index });
-                  setSelectorOpen(true);
-                }}
-                onRemove={() => handleRemove("you", index)}
-              />
-            ))}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Your Trade */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">You</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {yourTrade.fruits.map((fruit, index) => (
+                <FruitCard
+                  key={index}
+                  {...fruit}
+                  onToggle={handleToggle("you", index)}
+                  onClick={() => {
+                    setSelectedSlot({ side: "you", index });
+                    setSelectorOpen(true);
+                  }}
+                  onRemove={() => handleRemove("you", index)}
+                />
+              ))}
+            </div>
+            <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
+              <span className="text-lg">PRICE:</span>
+              <span className="text-xl text-green-400">
+                ${yourTrade.total.toLocaleString()}
+              </span>
+            </div>
           </div>
-          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
-            <span className="text-lg">PRICE:</span>
-            <span className="text-xl text-green-400">
-              ${yourTrade.total.toLocaleString()}
-            </span>
+
+          {/* Their Trade */}
+          <div className="space-y-4">
+            <h2 className="text-2xl font-semibold">Them</h2>
+            <div className="grid grid-cols-2 gap-4">
+              {theirTrade.fruits.map((fruit, index) => (
+                <FruitCard
+                  key={index}
+                  {...fruit}
+                  onToggle={handleToggle("them", index)}
+                  onClick={() => {
+                    setSelectedSlot({ side: "them", index });
+                    setSelectorOpen(true);
+                  }}
+                  onRemove={() => handleRemove("them", index)}
+                />
+              ))}
+            </div>
+            <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
+              <span className="text-lg">PRICE:</span>
+              <span className="text-xl text-green-400">
+                ${theirTrade.total.toLocaleString()}
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Their Trade */}
-        <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Them</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {theirTrade.fruits.map((fruit, index) => (
-              <FruitCard
-                key={index}
-                {...fruit}
-                isFirstCard={index === 0}
-                onToggle={handleToggle("them", index)}
-                onClick={() => {
-                  setSelectedSlot({ side: "them", index });
-                  setSelectorOpen(true);
-                }}
-                onRemove={() => handleRemove("them", index)}
-              />
-            ))}
-          </div>
-          <div className="flex justify-between items-center p-4 rounded-lg bg-blox-panel">
-            <span className="text-lg">PRICE:</span>
-            <span className="text-xl text-green-400">
-              ${theirTrade.total.toLocaleString()}
-            </span>
-          </div>
-        </div>
+        <TradeAnalysis yourTotal={yourTrade.total} theirTotal={theirTrade.total} />
+
+        <FruitSelector
+          open={selectorOpen}
+          onOpenChange={setSelectorOpen}
+          onSelect={handleSelect}
+        />
       </div>
-
-      <TradeAnalysis yourTotal={yourTrade.total} theirTotal={theirTrade.total} />
-
-      <FruitSelector
-        open={selectorOpen}
-        onOpenChange={setSelectorOpen}
-        onSelect={handleSelect}
-      />
     </div>
   );
 };

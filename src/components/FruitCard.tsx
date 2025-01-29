@@ -12,7 +12,6 @@ interface FruitCardProps {
   onClick?: () => void;
   onRemove?: () => void;
   className?: string;
-  isFirstCard?: boolean;
 }
 
 export const FruitCard = ({
@@ -25,7 +24,6 @@ export const FruitCard = ({
   onClick,
   onRemove,
   className,
-  isFirstCard = false,
 }: FruitCardProps) => {
   if (!name && !image) {
     return (
@@ -33,7 +31,6 @@ export const FruitCard = ({
         onClick={onClick}
         className={cn(
           "flex items-center justify-center w-full aspect-square rounded-lg bg-blox-panel transition-all hover:bg-opacity-90",
-          isFirstCard && "bg-[#FF4545]",
           className
         )}
       >
@@ -47,11 +44,10 @@ export const FruitCard = ({
   return (
     <div className={cn(
       "rounded-lg overflow-hidden bg-blox-panel group relative aspect-square flex flex-col",
-      isFirstCard && "bg-[#FF4545]",
       className
     )}>
       {/* Top bar with name and value */}
-      <div className="flex items-center justify-between p-3 bg-blox-background">
+      <div className="flex items-center justify-between p-3 bg-blox-background/50">
         <span className="text-sm font-medium text-white">{name}</span>
         <span className="text-sm font-bold text-white">
           ${displayValue?.toLocaleString()}
@@ -59,10 +55,10 @@ export const FruitCard = ({
       </div>
       
       {/* Image area with centered close button */}
-      <div className="relative flex-grow p-4">
+      <div className="relative flex-grow p-4 flex items-center justify-center">
         {image && (
-          <div className="relative h-full">
-            <img src={image} alt={name} className="w-full h-full object-cover rounded-md" />
+          <div className="relative w-1/2 h-1/2">
+            <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
                 onClick={onRemove} 
@@ -77,13 +73,13 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-3 bg-blox-background mt-auto">
+      <div className="p-3 bg-blox-background/50 mt-auto">
         <div className="flex items-center justify-between">
           <span className="text-xs text-white/80">{isPhysical ? 'Physical' : 'Permanent'}</span>
           <Switch 
             checked={!isPhysical} 
             onCheckedChange={onToggle}
-            className="data-[state=checked]:bg-[#FF4545] bg-gray-600"
+            className="data-[state=checked]:bg-blox-panel bg-gray-600"
           />
         </div>
       </div>
