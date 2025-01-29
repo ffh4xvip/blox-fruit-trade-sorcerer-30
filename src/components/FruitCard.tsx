@@ -47,7 +47,7 @@ export const FruitCard = ({
       className
     )}>
       {/* Top bar with name and value */}
-      <div className="flex items-center justify-between p-3 bg-[#4ade80]">
+      <div className="flex items-center justify-between p-3 bg-[#2e8b57]">
         <span className="text-sm font-medium text-white">{name}</span>
         <span className="text-sm font-bold text-white">
           ${displayValue?.toLocaleString()}
@@ -57,7 +57,7 @@ export const FruitCard = ({
       {/* Image area with centered close button */}
       <div className="relative flex-grow p-4 flex items-center justify-center">
         {image && (
-          <div className="relative w-[55%] h-[55%] sm:w-[65%] sm:h-[65%] flex items-center justify-center">
+          <div className="relative w-[75%] h-[75%] sm:w-[85%] sm:h-[85%] flex items-center justify-center">
             <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
