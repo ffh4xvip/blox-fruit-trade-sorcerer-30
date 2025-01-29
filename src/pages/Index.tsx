@@ -121,7 +121,7 @@ const Index = () => {
           {/* Your Trade */}
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">You</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {yourTrade.fruits.map((fruit, index) => (
                 <FruitCard
                   key={index}
@@ -146,7 +146,7 @@ const Index = () => {
           {/* Their Trade */}
           <div className="space-y-4">
             <h2 className="text-2xl font-semibold">Them</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4">
               {theirTrade.fruits.map((fruit, index) => (
                 <FruitCard
                   key={index}
