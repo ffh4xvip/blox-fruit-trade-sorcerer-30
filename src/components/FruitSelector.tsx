@@ -24,7 +24,7 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
       physical: fruit.physicalValue,
       permanent: fruit.permanentValue,
       category: fruit.category,
-      image: `/fruits/${fruit.name.toLowerCase()}.png`
+      image: `/fruits/${fruit.name.toLowerCase()}.webp`
     });
     onOpenChange(false);
   };
@@ -55,7 +55,7 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
                 className="p-4 rounded-lg bg-blox-panel hover:bg-opacity-90 transition-all space-y-2"
               >
                 <img 
-                  src={`/fruits/${fruit.name.toLowerCase()}.png`}
+                  src={`/fruits/${fruit.name.toLowerCase()}.webp`}
                   alt={fruit.name} 
                   className="w-full aspect-square object-cover rounded-md"
                 />
