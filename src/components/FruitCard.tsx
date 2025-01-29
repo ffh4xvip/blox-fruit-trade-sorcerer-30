@@ -73,15 +73,15 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-3 bg-[#ea384c] mt-auto">
-        <div className="flex items-center justify-between">
-          <span className="text-base font-medium text-white/80">
+      <div className="p-2 sm:p-3 bg-[#ea384c]">
+        <div className="flex items-center justify-between gap-2">
+          <span className="text-base font-medium text-white/90 whitespace-nowrap">
             {isPhysical ? 'Physical' : 'Permanent'}
           </span>
           <Switch 
             checked={!isPhysical} 
             onCheckedChange={onToggle}
-            className="data-[state=checked]:bg-blox-panel bg-gray-600"
+            className="data-[state=checked]:bg-blox-panel bg-gray-600 shrink-0"
           />
         </div>
       </div>
