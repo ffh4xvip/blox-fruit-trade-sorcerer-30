@@ -12,14 +12,14 @@ const parseFruitsConfig = (): Fruit[] => {
   return [
     {
       name: "Rocket",
-      image: `/fruits/${encodeURIComponent("Rocket")}.png`,
-      physical: 50000,
+      image: `/fruits/Rocket.png`,
+      physical: 5000,
       permanent: 2000000,
       category: "Common"
     },
     {
       name: "Spin",
-      image: `/fruits/${encodeURIComponent("Spin")}.png`,
+      image: `/fruits/Spin.png`,
       physical: 7500,
       permanent: 1500000,
       category: "Common"
