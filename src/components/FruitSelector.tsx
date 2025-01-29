@@ -16,10 +16,6 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
     fruit.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const getRandomImage = (name: string) => {
-    return `https://source.unsplash.com/400x400/?fruit,${name.toLowerCase()}`;
-  };
-
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[800px] bg-blox-background border-none p-0">
@@ -42,13 +38,13 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
               <button
                 key={fruit.name}
                 onClick={() => {
-                  onSelect({...fruit, image: getRandomImage(fruit.name)});
+                  onSelect({...fruit, image: `/fruits/${fruit.name}.png`});
                   onOpenChange(false);
                 }}
                 className="p-4 rounded-lg bg-blox-panel hover:bg-opacity-90 transition-all space-y-2"
               >
                 <img 
-                  src={getRandomImage(fruit.name)} 
+                  src={`/fruits/${fruit.name}.png`}
                   alt={fruit.name} 
                   className="w-full aspect-square object-cover rounded-md"
                 />
