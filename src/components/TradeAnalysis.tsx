@@ -7,9 +7,10 @@ interface TradeAnalysisProps {
 }
 
 export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => {
-  if (yourTotal === 0 || theirTotal === 0) return null;
+  // Show analysis even if only one side has value
+  if (yourTotal === 0 && theirTotal === 0) return null;
 
-  const difference = ((theirTotal - yourTotal) / yourTotal) * 100;
+  const difference = yourTotal === 0 ? 100 : ((theirTotal - yourTotal) / yourTotal) * 100;
   const isUnderpaying = difference < 0;
   const isFair = Math.abs(difference) < 5;
 
@@ -23,13 +24,13 @@ export const TradeAnalysis = ({ yourTotal, theirTotal }: TradeAnalysisProps) => 
     }
     if (isUnderpaying) {
       return {
-        text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Underpaying`,
+        text: `${Math.abs(difference).toFixed(2)}% Underpaying`,
         icon: ThumbsDown,
         className: "bg-red-500 text-white",
       };
     }
     return {
-      text: `${Math.min(Math.abs(difference), 100).toFixed(1)}% Overpaying`,
+      text: `${difference.toFixed(2)}% Overpaying`,
       icon: ThumbsUp,
       className: "bg-green-500 text-white",
     };

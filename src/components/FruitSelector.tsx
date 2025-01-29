@@ -2,7 +2,6 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { fruits } from "@/data/fruits";
-import { X } from "lucide-react";
 
 interface FruitSelectorProps {
   open: boolean;
@@ -17,15 +16,16 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
     fruit.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const getRandomImage = (name: string) => {
+    return `https://source.unsplash.com/400x400/?fruit,${name.toLowerCase()}`;
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[800px] bg-blox-background border-none p-0">
         <div className="p-6 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold text-white">Select Item</h2>
-            <button onClick={() => onOpenChange(false)} className="text-white/60 hover:text-white">
-              <X className="w-5 h-5" />
-            </button>
           </div>
           
           <div className="relative">
@@ -42,12 +42,16 @@ export const FruitSelector = ({ open, onOpenChange, onSelect }: FruitSelectorPro
               <button
                 key={fruit.name}
                 onClick={() => {
-                  onSelect(fruit);
+                  onSelect({...fruit, image: getRandomImage(fruit.name)});
                   onOpenChange(false);
                 }}
                 className="p-4 rounded-lg bg-blox-panel hover:bg-opacity-90 transition-all space-y-2"
               >
-                <img src={fruit.image} alt={fruit.name} className="w-full aspect-square object-cover rounded-md" />
+                <img 
+                  src={getRandomImage(fruit.name)} 
+                  alt={fruit.name} 
+                  className="w-full aspect-square object-cover rounded-md"
+                />
                 <div className="text-lg font-bold text-white">${fruit.physical.toLocaleString()}</div>
                 <div className="text-sm text-white/80">{fruit.name}</div>
               </button>

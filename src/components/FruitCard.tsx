@@ -46,7 +46,7 @@ export const FruitCard = ({
 
   return (
     <div className={cn(
-      "rounded-lg overflow-hidden bg-blox-panel group relative aspect-square",
+      "rounded-lg overflow-hidden bg-blox-panel group relative aspect-square flex flex-col",
       isFirstCard && "bg-[#FF4545]",
       className
     )}>
@@ -59,9 +59,9 @@ export const FruitCard = ({
       </div>
       
       {/* Image area with centered close button */}
-      <div className="relative p-4">
+      <div className="relative flex-grow p-4">
         {image && (
-          <div className="relative aspect-square">
+          <div className="relative h-full">
             <img src={image} alt={name} className="w-full h-full object-cover rounded-md" />
             {onRemove && (
               <button 
@@ -77,7 +77,7 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-3 bg-blox-background">
+      <div className="p-3 bg-blox-background mt-auto">
         <div className="flex items-center justify-between">
           <span className="text-xs text-white/80">{isPhysical ? 'Physical' : 'Permanent'}</span>
           <Switch 
