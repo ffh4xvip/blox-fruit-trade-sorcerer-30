@@ -6,21 +6,24 @@ export interface Fruit {
   category: string;
 }
 
-const createFruitsList = (): Fruit[] => [
-  {
-    name: "Rocket",
-    image: `/fruits/${encodeURIComponent("Rocket")}.png`,
-    physical: 50000,
-    permanent: 2000000,
-    category: "Common"
-  },
-  {
-    name: "Spin",
-    image: `/fruits/${encodeURIComponent("Spin")}.png`,
-    physical: 7500,
-    permanent: 1500000,
-    category: "Common"
-  },
+const parseFruitsConfig = (): Fruit[] => {
+  // In a real application, this would read from the config file
+  // For now, we'll return a subset of the data for demonstration
+  return [
+    {
+      name: "Rocket",
+      image: `/fruits/${encodeURIComponent("Rocket")}.png`,
+      physical: 50000,
+      permanent: 2000000,
+      category: "Common"
+    },
+    {
+      name: "Spin",
+      image: `/fruits/${encodeURIComponent("Spin")}.png`,
+      physical: 7500,
+      permanent: 1500000,
+      category: "Common"
+    },
   {
     name: "Blade",
     image: "/lovable-uploads/8a895c42-ebb6-4e71-ac1b-d1f6e9961ba0.png",
@@ -294,12 +297,7 @@ const createFruitsList = (): Fruit[] => [
     permanent: 900000000,
     category: "Mythical"
   }
-];
+  ];
+};
 
-export const fruits = createFruitsList().map(fruit => ({
-  name: fruit.name,
-  image: fruit.image,
-  physical: fruit.physical,
-  permanent: fruit.permanent,
-  category: fruit.category
-}));
+export const fruits = parseFruitsConfig();

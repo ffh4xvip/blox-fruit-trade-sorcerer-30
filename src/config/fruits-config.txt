@@ -1,0 +1,16 @@
+# Fruit Values Configuration
+# Format: name,physical_value,permanent_value,category
+
+Rocket,50000,2000000,Common
+Spin,7500,1500000,Common
+Blade,30000,1500000,Common
+Bomb,80000,1600000,Common
+Smoke,100000,16000000,Common
+Spike,180000,14000000,Common
+Spring,1500000,60000000,Common
+Flame,250000,50000000,Uncommon
+Falcon,300000,65000000,Uncommon
+Dark,400000,160000000,Uncommon
+Sand,420000,100000000,Uncommon
+Ice,550000,150000000,Uncommon
+Diamond,600000,115000000,Uncommon
