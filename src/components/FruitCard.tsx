@@ -30,7 +30,7 @@ export const FruitCard = ({
       <button
         onClick={onClick}
         className={cn(
-          "flex items-center justify-center w-full aspect-square rounded-lg bg-blox-panel transition-all hover:bg-opacity-90",
+          "flex items-center justify-center w-full h-[180px] rounded-lg bg-blox-panel transition-all hover:bg-opacity-90",
           className
         )}
       >
@@ -43,21 +43,21 @@ export const FruitCard = ({
 
   return (
     <div className={cn(
-      "rounded-lg overflow-hidden bg-blox-panel group relative aspect-square flex flex-col",
+      "rounded-lg overflow-hidden bg-blox-panel group relative h-[180px] flex flex-col",
       className
     )}>
       {/* Top bar with name and value */}
-      <div className="flex items-center justify-between p-3 bg-[#2e8b57]">
-        <span className="text-sm font-medium text-white">{name}</span>
-        <span className="text-sm font-bold text-white">
+      <div className="flex items-center justify-between p-2 bg-[#2e8b57]">
+        <span className="text-sm font-medium text-white truncate">{name}</span>
+        <span className="text-sm font-bold text-white ml-2 whitespace-nowrap">
           ${displayValue?.toLocaleString()}
         </span>
       </div>
       
       {/* Image area with centered close button */}
-      <div className="relative flex-grow p-4 flex items-center justify-center">
+      <div className="relative flex-grow p-2 flex items-center justify-center">
         {image && (
-          <div className="relative w-[75%] h-[75%] sm:w-[85%] sm:h-[85%] flex items-center justify-center">
+          <div className="relative w-[60%] h-[85%] flex items-center justify-center">
             <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
@@ -73,9 +73,9 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-2 sm:p-3 bg-[#ea384c]">
+      <div className="p-2 bg-[#ea384c]">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-base font-medium text-white/90 whitespace-nowrap">
+          <span className="text-sm font-medium text-white/90 whitespace-nowrap">
             {isPhysical ? 'Physical' : 'Permanent'}
           </span>
           <Switch 
