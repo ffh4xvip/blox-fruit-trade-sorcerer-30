@@ -42,17 +42,11 @@ const Index = () => {
     const newFruits = [...trade.fruits];
     newFruits[index] = {
       name: fruit.name,
-      image: fruit.image,
+      image: fruit.image.replace('.png', '.webp'),
       price: fruit.physical,
       permanent: fruit.permanent,
       isPhysical: true,
     };
-
-    // If this is the first card, activate the second card
-    if (index === 0) {
-      setSelectedSlot({ side, index: 1 });
-      setSelectorOpen(true);
-    }
 
     const newTotal = newFruits.reduce(
       (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
@@ -63,6 +57,12 @@ const Index = () => {
       fruits: newFruits,
       total: newTotal,
     });
+
+    // If this is the first card, activate the second card
+    if (index === 0) {
+      setSelectedSlot({ side, index: 1 });
+      setSelectorOpen(true);
+    }
   };
 
   const handleRemove = (side: "you" | "them", index: number) => {
@@ -73,7 +73,7 @@ const Index = () => {
     newFruits[index] = {};
 
     const newTotal = newFruits.reduce(
-      (acc, fruit) => acc + (fruit.price || 0),
+      (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
       0
     );
 
@@ -94,11 +94,10 @@ const Index = () => {
     newFruits[index] = {
       ...fruit,
       isPhysical: !checked,
-      price: checked ? fruit.permanent : fruit.price,
     };
 
     const newTotal = newFruits.reduce(
-      (acc, fruit) => acc + (fruit.price || 0),
+      (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
       0
     );
 
@@ -110,7 +109,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen p-4 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-8">
         <div className="text-center space-y-2">
           <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 text-transparent bg-clip-text">
             Blox Fruit Calculator

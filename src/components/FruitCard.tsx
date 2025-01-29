@@ -47,7 +47,7 @@ export const FruitCard = ({
       className
     )}>
       {/* Top bar with name and value */}
-      <div className="flex items-center justify-between p-3 bg-blox-background/50">
+      <div className="flex items-center justify-between p-3 bg-green-600/20">
         <span className="text-sm font-medium text-white">{name}</span>
         <span className="text-sm font-bold text-white">
           ${displayValue?.toLocaleString()}
@@ -57,7 +57,7 @@ export const FruitCard = ({
       {/* Image area with centered close button */}
       <div className="relative flex-grow p-4 flex items-center justify-center">
         {image && (
-        <div className="relative w-[60%] h-[60%] sm:w-[70%] sm:h-[70%]">
+          <div className="relative w-[40%] h-[40%] sm:w-[50%] sm:h-[50%] flex items-center justify-center">
             <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
@@ -73,9 +73,11 @@ export const FruitCard = ({
       </div>
 
       {/* Bottom toggle area */}
-      <div className="p-3 bg-blox-background/50 mt-auto">
+      <div className="p-3 bg-red-600/20 mt-auto">
         <div className="flex items-center justify-between">
-          <span className="text-xs text-white/80">{isPhysical ? 'Physical' : 'Permanent'}</span>
+          <span className="text-base font-medium text-white/80">
+            {isPhysical ? 'Physical' : 'Permanent'}
+          </span>
           <Switch 
             checked={!isPhysical} 
             onCheckedChange={onToggle}
