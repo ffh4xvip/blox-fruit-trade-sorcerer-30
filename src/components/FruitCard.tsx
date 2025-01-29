@@ -81,7 +81,7 @@ export const FruitCard = ({
           <Switch 
             checked={!isPhysical} 
             onCheckedChange={onToggle}
-            className="data-[state=checked]:bg-[#8B5CF6] bg-white shrink-0"
+            className="data-[state=checked]:bg-[#8B5CF6] data-[state=unchecked]:bg-[#f0f0f0] shrink-0"
           />
         </div>
       </div>
