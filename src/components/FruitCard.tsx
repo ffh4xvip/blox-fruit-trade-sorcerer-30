@@ -57,7 +57,7 @@ export const FruitCard = ({
       {/* Image area with centered close button */}
       <div className="relative flex-grow p-4 flex items-center justify-center">
         {image && (
-          <div className="relative w-[60%] h-[60%]">
+        <div className="relative w-[60%] h-[60%] sm:w-[70%] sm:h-[70%]">
             <img src={image} alt={name} className="w-full h-full object-contain" />
             {onRemove && (
               <button 
