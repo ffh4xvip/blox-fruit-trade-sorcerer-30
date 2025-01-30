@@ -1,27 +1,4 @@
-# Blox Fruits Calculator WordPress Plugin
-
-## Installation
-
-1. Download the plugin zip file
-2. Go to WordPress admin -> Plugins -> Add New -> Upload Plugin
-3. Upload the zip file and activate the plugin
-4. Use the shortcode `[blox_fruits_calculator]` on any page or post to display the calculator
-
-## Adding New Fruits
-
-1. Upload new fruit images to the `wp-content/uploads/fruits` directory
-2. Edit the `fruits.json` file in the plugin directory to add new fruit data
-3. The calculator will automatically load the new fruits
-
-## Development
-
-This plugin is built with React. To modify the React application:
-
-1. Clone the repository
-2. Run `npm install`
-3. Make your changes
-4. Run `npm run build` to create the production build
-5. Copy the contents of the `dist` directory to your WordPress plugin directory
+# Welcome to your Lovable project
 
 ## Project info
 
