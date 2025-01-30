@@ -3,6 +3,7 @@ import { FruitCard } from "@/components/FruitCard";
 import { FruitSelector } from "@/components/FruitSelector";
 import { TradeAnalysis } from "@/components/TradeAnalysis";
 import { useToast } from "@/components/ui/use-toast";
+import { Plus } from "lucide-react";
 
 interface Trade {
   fruits: Array<{
@@ -23,12 +24,12 @@ const Index = () => {
   );
 
   const [yourTrade, setYourTrade] = useState<Trade>({
-    fruits: Array(4).fill({}),
+    fruits: [{}],
     total: 0,
   });
 
   const [theirTrade, setTheirTrade] = useState<Trade>({
-    fruits: Array(4).fill({}),
+    fruits: [{}],
     total: 0,
   });
 
@@ -42,11 +43,16 @@ const Index = () => {
     const newFruits = [...trade.fruits];
     newFruits[index] = {
       name: fruit.name,
-      image: fruit.image.replace('.png', '.webp'),
+      image: fruit.image,
       price: fruit.physical,
       permanent: fruit.permanent,
       isPhysical: true,
     };
+
+    // Add a new empty slot if this was the last slot
+    if (index === newFruits.length - 1) {
+      newFruits.push({});
+    }
 
     const newTotal = newFruits.reduce(
       (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
@@ -57,20 +63,18 @@ const Index = () => {
       fruits: newFruits,
       total: newTotal,
     });
-
-    // If this is the first card, activate the second card
-    if (index === 0) {
-      setSelectedSlot({ side, index: 1 });
-      setSelectorOpen(true);
-    }
   };
 
   const handleRemove = (side: "you" | "them", index: number) => {
     const trade = side === "you" ? yourTrade : theirTrade;
     const setTrade = side === "you" ? setYourTrade : setTheirTrade;
 
-    const newFruits = [...trade.fruits];
-    newFruits[index] = {};
+    const newFruits = trade.fruits.filter((_, i) => i !== index);
+    
+    // Ensure there's always at least one empty slot
+    if (newFruits.length === 0) {
+      newFruits.push({});
+    }
 
     const newTotal = newFruits.reduce(
       (acc, fruit) => acc + (fruit.isPhysical ? (fruit.price || 0) : (fruit.permanent || 0)),
@@ -131,7 +135,7 @@ const Index = () => {
                     setSelectedSlot({ side: "you", index });
                     setSelectorOpen(true);
                   }}
-                  onRemove={() => handleRemove("you", index)}
+                  onRemove={fruit.name ? () => handleRemove("you", index) : undefined}
                 />
               ))}
             </div>
@@ -156,7 +160,7 @@ const Index = () => {
                     setSelectedSlot({ side: "them", index });
                     setSelectorOpen(true);
                   }}
-                  onRemove={() => handleRemove("them", index)}
+                  onRemove={fruit.name ? () => handleRemove("them", index) : undefined}
                 />
               ))}
             </div>
