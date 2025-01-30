@@ -24,12 +24,12 @@ const Index = () => {
   );
 
   const [yourTrade, setYourTrade] = useState<Trade>({
-    fruits: [{}],
+    fruits: Array(4).fill({}),
     total: 0,
   });
 
   const [theirTrade, setTheirTrade] = useState<Trade>({
-    fruits: [{}],
+    fruits: Array(4).fill({}),
     total: 0,
   });
 
@@ -49,8 +49,9 @@ const Index = () => {
       isPhysical: true,
     };
 
-    // Add a new empty slot if this was the last slot
-    if (index === newFruits.length - 1) {
+    // Check if all current slots are filled
+    const allSlotsFilled = newFruits.every(fruit => fruit.name);
+    if (allSlotsFilled) {
       newFruits.push({});
     }
 
@@ -71,8 +72,8 @@ const Index = () => {
 
     const newFruits = trade.fruits.filter((_, i) => i !== index);
     
-    // Ensure there's always at least one empty slot
-    if (newFruits.length === 0) {
+    // Ensure there's always at least 4 slots
+    while (newFruits.length < 4) {
       newFruits.push({});
     }
 
@@ -183,6 +184,7 @@ const Index = () => {
       </div>
     </div>
   );
+
 };
 
 export default Index;
