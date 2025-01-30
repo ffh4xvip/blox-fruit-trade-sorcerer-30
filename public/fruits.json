@@ -1,0 +1,250 @@
+{
+    "fruits": [
+        {
+            "name": "Rocket",
+            "physicalValue": 50000,
+            "permanentValue": 2000000,
+            "category": "Common"
+        },
+        {
+            "name": "Spin",
+            "physicalValue": 7500,
+            "permanentValue": 1500000,
+            "category": "Common"
+        },
+        {
+            "name": "Blade",
+            "physicalValue": 30000,
+            "permanentValue": 1500000,
+            "category": "Common"
+        },
+        {
+            "name": "Bomb",
+            "physicalValue": 80000,
+            "permanentValue": 1600000,
+            "category": "Common"
+        },
+        {
+            "name": "Smoke",
+            "physicalValue": 100000,
+            "permanentValue": 16000000,
+            "category": "Common"
+        },
+        {
+            "name": "Spike",
+            "physicalValue": 180000,
+            "permanentValue": 14000000,
+            "category": "Common"
+        },
+        {
+            "name": "Spring",
+            "physicalValue": 1500000,
+            "permanentValue": 60000000,
+            "category": "Common"
+        },
+        {
+            "name": "Flame",
+            "physicalValue": 250000,
+            "permanentValue": 50000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Falcon",
+            "physicalValue": 300000,
+            "permanentValue": 65000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Dark",
+            "physicalValue": 400000,
+            "permanentValue": 160000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Sand",
+            "physicalValue": 420000,
+            "permanentValue": 100000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Ice",
+            "physicalValue": 550000,
+            "permanentValue": 150000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Diamond",
+            "physicalValue": 600000,
+            "permanentValue": 115000000,
+            "category": "Uncommon"
+        },
+        {
+            "name": "Rubber",
+            "physicalValue": 700000,
+            "permanentValue": 200000000,
+            "category": "Rare"
+        },
+        {
+            "name": "Barrier",
+            "physicalValue": 800000,
+            "permanentValue": 185000000,
+            "category": "Rare"
+        },
+        {
+            "name": "Ghost",
+            "physicalValue": 800000,
+            "permanentValue": 190000000,
+            "category": "Rare"
+        },
+        {
+            "name": "Light",
+            "physicalValue": 800000,
+            "permanentValue": 190000000,
+            "category": "Rare"
+        },
+        {
+            "name": "Magma",
+            "physicalValue": 1200000,
+            "permanentValue": 235000000,
+            "category": "Rare"
+        },
+        {
+            "name": "Quake",
+            "physicalValue": 1000000,
+            "permanentValue": 270000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Spider",
+            "physicalValue": 1200000,
+            "permanentValue": 325000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Love",
+            "physicalValue": 1200000,
+            "permanentValue": 305000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Pain",
+            "physicalValue": 2000000,
+            "permanentValue": 395000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Phoenix",
+            "physicalValue": 2300000,
+            "permanentValue": 130000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Sound",
+            "physicalValue": 2500000,
+            "permanentValue": 338000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Blizzard",
+            "physicalValue": 5000000,
+            "permanentValue": 395000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Rumble",
+            "physicalValue": 7000000,
+            "permanentValue": 345000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Portal",
+            "physicalValue": 8000000,
+            "permanentValue": 205000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Buddha",
+            "physicalValue": 8000000,
+            "permanentValue": 335000000,
+            "category": "Legendary"
+        },
+        {
+            "name": "Gravity",
+            "physicalValue": 2000000,
+            "permanentValue": 410000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Shadow",
+            "physicalValue": 6000000,
+            "permanentValue": 430000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Control",
+            "physicalValue": 7100000,
+            "permanentValue": 445000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Venom",
+            "physicalValue": 9000000,
+            "permanentValue": 430000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Spirit",
+            "physicalValue": 10000000,
+            "permanentValue": 455000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Mammoth",
+            "physicalValue": 12000000,
+            "permanentValue": 375000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "T-Rex",
+            "physicalValue": 20000000,
+            "permanentValue": 420000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Dough",
+            "physicalValue": 25000000,
+            "permanentValue": 450000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Leopard",
+            "physicalValue": 50000000,
+            "permanentValue": 530000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Gas",
+            "physicalValue": 85000000,
+            "permanentValue": 505000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "Kitsune",
+            "physicalValue": 130000000,
+            "permanentValue": 720000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "East Dragon",
+            "physicalValue": 373000000,
+            "permanentValue": 900000000,
+            "category": "Mythical"
+        },
+        {
+            "name": "West Dragon",
+            "physicalValue": 373000000,
+            "permanentValue": 900000000,
+            "category": "Mythical"
+        }
+    ]
+}
