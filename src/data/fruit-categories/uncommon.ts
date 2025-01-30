@@ -37,13 +37,6 @@ export const uncommonFruits: Fruit[] = [
     category: "Uncommon"
   },
   {
-    name: "Ifham",
-    image: `/fruits/Ice.webp`,
-    physical: 550000,
-    permanent: 150000000,
-    category: "Uncommon"
-  },
-  {
     name: "Diamond",
     image: `/fruits/Diamond.webp`,
     physical: 600000,
