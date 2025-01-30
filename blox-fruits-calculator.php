@@ -26,23 +26,31 @@ add_action('admin_menu', 'blox_fruits_calculator_menu');
 
 // Register shortcode to display calculator
 function blox_fruits_calculator_shortcode() {
-    wp_enqueue_script(
-        'blox-fruits-calculator',
-        plugin_dir_url(__FILE__) . 'dist/assets/index.js',
-        array(),
-        '1.0.0',
-        true
-    );
-    wp_enqueue_style(
-        'blox-fruits-calculator',
-        plugin_dir_url(__FILE__) . 'dist/assets/index.css',
-        array(),
-        '1.0.0'
-    );
-    
     return '<div id="blox-fruits-calculator-root"></div>';
 }
 add_shortcode('blox_fruits_calculator', 'blox_fruits_calculator_shortcode');
+
+// Enqueue necessary scripts and styles
+function blox_fruits_calculator_scripts() {
+    // Only enqueue on pages where the shortcode is used
+    global $post;
+    if (is_a($post, 'WP_Post') && has_shortcode($post->post_content, 'blox_fruits_calculator')) {
+        wp_enqueue_script(
+            'blox-fruits-calculator',
+            plugin_dir_url(__FILE__) . 'dist/assets/index.js',
+            array(),
+            '1.0.0',
+            true
+        );
+        wp_enqueue_style(
+            'blox-fruits-calculator',
+            plugin_dir_url(__FILE__) . 'dist/assets/index.css',
+            array(),
+            '1.0.0'
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'blox_fruits_calculator_scripts');
 
 // Admin page content
 function blox_fruits_calculator_page() {
