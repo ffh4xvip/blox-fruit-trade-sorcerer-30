@@ -2,9 +2,8 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Get the base URL from the script tag
-const scriptElement = document.querySelector('script[src*="/assets/"]') as HTMLScriptElement;
-const baseUrl = scriptElement ? new URL(scriptElement.src).pathname.split('/assets/')[0] : '';
+// Get the base URL from the current page location
+const baseUrl = window.location.pathname.replace(/\/[^/]*$/, '');
 
 // Create a base element to handle relative paths
 const baseElement = document.createElement('base');
