@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/blx-calc/', // Set the base URL to match your deployment path
+  base: './', // Use relative path to support any subdirectory
   server: {
     host: "::",
     port: 8080,
