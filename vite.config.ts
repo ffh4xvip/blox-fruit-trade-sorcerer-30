@@ -5,6 +5,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   base: './',
+  server: {
+    host: "::",
+    port: 8080,
+  },
   build: {
     // Output to assets directory
     outDir: 'assets',
