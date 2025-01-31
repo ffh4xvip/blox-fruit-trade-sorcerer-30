@@ -34,10 +34,36 @@ function blox_fruit_trade_page() {
     <?php
 }
 
-// Enqueue scripts and styles
-function blox_fruit_trade_scripts() {
-    // Only load on plugin page
-    if (isset($_GET['page']) && $_GET['page'] === 'blox-fruit-trade') {
+// Register shortcode
+function blox_fruit_trade_shortcode() {
+    // Buffer the output
+    ob_start();
+    ?>
+    <div id="root"></div>
+    <?php
+    // Enqueue necessary scripts and styles
+    wp_enqueue_script(
+        'blox-fruit-trade-js',
+        plugins_url('assets/index.js', __FILE__),
+        array(),
+        '1.0.0',
+        true
+    );
+    wp_enqueue_style(
+        'blox-fruit-trade-css',
+        plugins_url('assets/index.css', __FILE__),
+        array(),
+        '1.0.0'
+    );
+    
+    return ob_get_clean();
+}
+add_shortcode('blox_calculator', 'blox_fruit_trade_shortcode');
+
+// Enqueue scripts and styles for admin page
+function blox_fruit_trade_scripts($hook) {
+    // Only load on plugin page or when shortcode is used
+    if ($hook === 'toplevel_page_blox-fruit-trade' || has_shortcode(get_post_field('post_content'), 'blox_calculator')) {
         wp_enqueue_script(
             'blox-fruit-trade-js',
             plugins_url('assets/index.js', __FILE__),
@@ -54,3 +80,4 @@ function blox_fruit_trade_scripts() {
     }
 }
 add_action('admin_enqueue_scripts', 'blox_fruit_trade_scripts');
+add_action('wp_enqueue_scripts', 'blox_fruit_trade_scripts');
