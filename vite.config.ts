@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // This ensures assets are loaded relative to the HTML file
+  base: '/blx-calc/', // Set the base URL to match your deployment path
   server: {
     host: "::",
     port: 8080,
