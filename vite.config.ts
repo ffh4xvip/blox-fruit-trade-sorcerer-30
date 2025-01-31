@@ -4,23 +4,23 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Use relative path to support any subdirectory
-  server: {
-    host: "::",
-    port: 8080,
+  base: './',
+  build: {
+    // Output to assets directory
+    outDir: 'assets',
+    // Generate manifest for WordPress
+    manifest: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name].js',
+        assetFileNames: '[name].[ext]'
+      }
+    }
   },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        assetFileNames: 'assets/[name][extname]',
-        chunkFileNames: 'assets/[name].js',
-        entryFileNames: 'assets/[name].js',
-      },
-    },
-  },
+  }
 })
